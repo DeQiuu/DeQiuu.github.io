@@ -1,0 +1,290 @@
+body {
+    margin: 0;
+    background: linear-gradient(270deg, pink, hotpink, pink);
+    background-size: 600% 600%;
+    animation: bgMove 10s infinite alternate;
+    font-family: Arial;
+    text-align: center;
+    overflow: hidden;
+}
+
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.main {
+    position: relative;
+    height: 100vh;
+}
+
+#list {
+    position: absolute;
+    height: 300px;
+    width: 500px;
+    top: 40%;
+    left: -30%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    animation: slidein 2s forwards, glow 1s infinite alternate;
+    transition: transform 0.8s ease;
+}
+
+@keyframes slidein {
+    to { left: 50%; }
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 5px red; }
+    to { box-shadow: 0 0 25px red; }
+}
+
+#list.open {
+    transform: translate(-50%, -20%) scale(0.0001) rotateX(15deg);
+    transform-origin: center bottom;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+    transform: translateY(-20px);
+}
+
+#message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Przyciski TAK/NIE */
+#valentineButtons {
+    display: none;
+    margin-top: 100px;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(-20px);
+}
+
+#valentineButtons.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+button {
+    padding: 10px 50px;
+    font-size: 30px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#quiz {
+    display: none;
+    margin-top: 50px;
+}
+
+.quizButtons {
+    margin-top: 10px;
+}
+
+#hintText {
+    color: darkred;
+    font-weight: bold;
+}
+
+#loveMeter {
+    display: none;
+    margin-top: 50px;
+}
+
+input[type="range"] {
+    width: 60%;
+}
+
+/* Animacja serc */
+.hearts span {
+    position: absolute;
+    font-size: 20px;
+    animation: float 5s linear forwards;
+}
+
+@keyframes float {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-800px) rotate(360deg); opacity: 0; }
+}
+
+/* Kontener wybuchu */
+#explosionContainer img {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+}
+
+#explosionContainer img.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Slider info */
+#loveValue.warning {
+    color: darkred;
+    font-weight: bold;
+}
+/* Tekstowe inputy w quizie */
+#quiz input[type="text"] {
+    padding: 10px 15px;
+    font-size: 18px;
+    border: 2px solid hotpink;
+    border-radius: 12px;
+    outline: none;
+    transition: 0.3s;
+    width: 250px;
+    text-align: center;
+}
+
+#quiz input[type="text"]:focus {
+    border-color: deeppink;
+    box-shadow: 0 0 10px deeppink;
+}
+
+/* Slider miłości */
+#loveSlider {
+    -webkit-appearance: none;
+    width: 60%;
+    height: 12px;
+    border-radius: 10px;
+    background: pink;
+    outline: none;
+    transition: 0.3s;
+}
+
+#loveSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: red;
+    cursor: pointer;
+    box-shadow: 0 0 5px crimson;
+    transition: 0.3s;
+}
+
+#loveSlider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 12px crimson;
+}
+
+/* Slider dla Firefox */
+#loveSlider::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: red;
+    cursor: pointer;
+    box-shadow: 0 0 5px crimson;
+    transition: 0.3s;
+}
+
+/* Quiz i love buttony */
+#quiz button, #valentineButtons button, #confirmLove {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    background: hotpink;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+#quiz button:hover, #valentineButtons button:hover, #confirmLove:hover {
+    background: deeppink;
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+}
+
+/* Podpowiedź hint */
+#hintText {
+    color: deeppink;
+    font-weight: bold;
+    margin-top: 10px;
+}
+/* Nagłówek główny */
+#title {
+    font-size: 48px;
+    color: deeppink;
+    text-shadow: 2px 2px 5px pink;
+    margin-top: 20px;
+    transition: 0.5s;
+}
+
+/* Quiz – pytania */
+#quiz h2 {
+    font-size: 28px;
+    color: crimson;
+    text-shadow: 1px 1px 4px pink;
+    margin-bottom: 15px;
+}
+
+/* Podpowiedź quizu */
+#hintText {
+    font-size: 20px;
+    color: deeppink;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Slider – nagłówek */
+#loveMeter h2 {
+    font-size: 28px;
+    color: crimson;
+    text-shadow: 1px 1px 4px pink;
+}
+
+/* Wynik slidera */
+#loveValue {
+    font-size: 24px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: deeppink;
+    text-shadow: 1px 1px 2px pink;
+}
+
+/* Komunikat przy niepełnym sliderze */
+#loveValue.warning {
+    color: darkred;
+    text-shadow: 1px 1px 2px crimson;
+}
+
+/* Drobne animacje przy hover nad nagłówkiem (opcjonalnie) */
+#title:hover {
+    transform: scale(1.05);
+    color: hotpink;
+}
+/* Wielki pulsujący napis po 100% sliderze */
+#finalMessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: deeppink;
+    text-align: center;
+    text-shadow: 2px 2px 10px pink;
+    animation: pulse 1s infinite alternate;
+    z-index: 1000;
+}
+
+/* Animacja pulsowania */
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
