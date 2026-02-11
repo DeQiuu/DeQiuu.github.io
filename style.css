@@ -40,7 +40,7 @@ body {
 }
 
 #list.open {
-    transform: translate(-50%, -20%) scale(0.0001) rotateX(15deg);
+    transform: translate(-50%, -100%) scale(0.0001) rotateX(15deg);
     transform-origin: center bottom;
 }
 
@@ -116,8 +116,8 @@ input[type="range"] {
 /* Kontener wybuchu */
 #explosionContainer img {
     position: absolute;
-    width: 1920px;
-    height: 1080px;
+    width: 800px;
+    height: 600px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);

@@ -69,8 +69,7 @@ list.addEventListener("click", () => {
     setTimeout(() => {
         valentineButtons.style.display = "block";
         valentineButtons.classList.add("show");
-        
-    }, 1500);
+    }, );
     
 });
 
@@ -82,7 +81,6 @@ yesBtn.addEventListener("click", () => {
     loadQuestion();
 });
 
-// Kliknięcie NIE
 noBtn.addEventListener("mouseover", () => {
     const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
     const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
@@ -91,9 +89,8 @@ noBtn.addEventListener("mouseover", () => {
     noBtn.style.top = y + "px";
 });
 
-// Quiz
 const questions = [
-    { q: "Gdzie i kiedy zostaliśmy parą (dokładnie data, godzina)?", hint: "Data zaczyna się od 31.01.---- 02:12:57:242:152", check: a => a.includes("31.01.2025 02:12:57:242:152") },
+    { q: "Gdzie i kiedy zostaliśmy parą (dokładnie data, godzina)?", hint: "Data zaczyna się od 31.01.____ 02:12:57:242:152", check: a => a.includes("31.01.2025 02:12:57:242:152") },
     { q: "Co lubię jeść?", hint: "wszy......o (wiadomo nie jakas jebana fasolke)", check: a => a.toLowerCase().includes("wszystko") },
     { q: "Co chciałbym teraz zjeść?", hint: "Jest w tym pokoju", check: a => a.toLowerCase().includes("ciebie") },
     { q: "Ile trwa 6 noc w FNAF?", hint: "Około 8 minut 55 sekund", check: a => a.includes("8:55") },
@@ -110,22 +107,24 @@ function loadQuestion() {
 document.getElementById("submit").addEventListener("click", () => {
     const answer = answerEl.value;
     if (questions[current].check(answer)) {
-        
-        
+       
+;
         current++;
         if (current < questions.length) {
             loadQuestion();
         } else {
             quiz.style.display = "none";
             loveMeter.style.display = "block";
-            
             loveSlider.value = 100;
             loveValue.textContent = "100%";
         }
     } else {
+        const pipeSound = new Audio("pipe.mp3");
+        pipeSound.play();
         alert("🥲🥲🥲 zła odpowiedź skarbie 🥲🥲🥲");
     }
 });
+
 
 hintBtn.addEventListener("click", () => {
     hintText.textContent = questions[current].hint;
@@ -153,6 +152,10 @@ document.getElementById("confirmLove").addEventListener("click", () => {
         const finalMsg = document.createElement("div");
         finalMsg.id = "finalMessage";
         finalMsg.textContent = "😭😭😭 TERAZ JESTEM NAJSMUTNIEJSZYM MEZCZYNA NA SWIECIE 😭😭😭 ";
+        const pipeSound = new Audio("pipe.mp3");
+        pipeSound.play();
+      
+
         document.body.appendChild(finalMsg);
     } else {
         // Ukryj wszystko na stronie
