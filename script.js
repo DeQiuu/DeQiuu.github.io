@@ -92,8 +92,8 @@ noBtn.addEventListener("mouseover", () => {
 const questions = [
     { q: "Gdzie i kiedy zostaliśmy parą (dokładnie data, godzina)?", hint: "Data zaczyna się od 31.01.____ 02:12:57:242:152", check: a => a.includes("31.01.2025 02:12:57:242:152") },
     { q: "Co lubię jeść?", hint: "wszy......o (wiadomo nie jakas jebana fasolke)", check: a => a.toLowerCase().includes("wszystko") },
-    { q: "Co chciałbym teraz zjeść?", hint: "Jest w tym pokoju", check: a => a.toLowerCase().includes("ciebie") },
-    { q: "Ile trwa 6 noc w FNAF?", hint: "Około 8 minut 55 sekund", check: a => a.includes("8:55") },
+    { q: "Co chciałbym teraz zjeść?", hint: "Jest w tym pokoju", check: a => a.toLowerCase().includes("mnie") },
+    { q: "Ile trwa 6 noc w FNAF?", hint: "(√(17^2 − 8^2) + log_2(16) · cos(60°) + ln(√[5](e^0.5))) / 2 = ?", check: a => a.includes("8:55") },
     { q: "Gotowa na najważniejsze pytanie?", hint: "Zaraz będzie słodko ❤️", check: a => a.toLowerCase().includes("tak") }
 ];
 let current = 0;
@@ -168,5 +168,6 @@ document.getElementById("confirmLove").addEventListener("click", () => {
         document.body.appendChild(finalMsg);
     }
 });
+
 
 
